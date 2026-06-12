@@ -197,6 +197,30 @@ async function initDashHero() {
   if (!document.getElementById('gauge')) return;
   const vehicles = await loadInventory();
   runGauge(vehicles.length);
+
+  const list = document.getElementById('featured-list');
+  list.innerHTML = vehicles.map(v => `
+    <a class="feat-row" href="vehicle.html?id=${v.id}">
+      <img src="${v.img.replace('w=1400', 'w=160')}" alt="${v.year} ${v.make} ${v.model}" loading="lazy">
+      <span class="fr-name">${v.year} ${v.make} ${v.model}</span>
+      <span class="fr-price">${fmtPrice(v.price)}</span>
+    </a>`).join('');
+
+  const comms = document.getElementById('comms-list');
+  const rand = (a, b) => a + Math.floor(Math.random() * (b - a));
+  const makeEvent = () => {
+    const v = vehicles[rand(0, vehicles.length)];
+    return Math.random() < 0.35
+      ? `<div class="comms-row"><span>Reply sent · ${v.model}</span><span class="c-ok">ok</span></div>`
+      : `<div class="comms-row"><span>Inquiry: ${v.model}</span><span class="c-val">${rand(20, 59)}s</span></div>`;
+  };
+  for (let i = 0; i < 3; i++) comms.insertAdjacentHTML('afterbegin', makeEvent());
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(() => {
+      comms.insertAdjacentHTML('afterbegin', makeEvent());
+      while (comms.children.length > 4) comms.lastElementChild.remove();
+    }, 4000);
+  }
 }
 
 initHome();
