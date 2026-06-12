@@ -1,22 +1,23 @@
 /* Apex Auto Group — design system */
 
 :root {
-  --bg: #0e1116;
-  --bg-2: #12161d;
-  --surface: #1a1f27;
-  --surface-2: #212833;
-  --line: rgba(231, 227, 218, 0.09);
-  --line-strong: rgba(231, 227, 218, 0.16);
-  --ink: #e7e3da;
-  --ink-2: #a8acb3;
-  --ink-3: #828893;
-  --gold: #c8a24a;
-  --gold-2: #e0bc6a;
-  --gold-dim: rgba(200, 162, 74, 0.14);
-  --blue: #2a6b8a;
+  --bg: #0d0d0e;
+  --bg-2: #121213;
+  --surface: #18181a;
+  --surface-2: #1f1f22;
+  --line: rgba(236, 231, 220, 0.09);
+  --line-strong: rgba(236, 231, 220, 0.16);
+  --ink: #ece7dc;
+  --ink-2: #b3ada1;
+  --ink-3: #8d877c;
+  --red: #d64545;
+  --red-2: #e25d5d;
+  --red-btn: #c73e3e;
+  --red-dim: rgba(214, 69, 69, 0.12);
+  --ok: #7d8a6e;
   --radius: 10px;
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
-  --shadow-float: 0 2px 4px rgba(0, 0, 0, 0.5), 0 16px 48px rgba(8, 10, 14, 0.6), 0 0 0 1px rgba(231, 227, 218, 0.05);
+  --shadow-float: 0 2px 4px rgba(0, 0, 0, 0.5), 0 16px 48px rgba(10, 10, 11, 0.6), 0 0 0 1px rgba(236, 231, 220, 0.05);
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -70,7 +71,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--ink-3);
 }
 .muted { color: var(--ink-2); }
 
@@ -97,7 +98,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
-.brand span { color: var(--gold); }
+.brand span { color: var(--red); }
 .nav-links { display: flex; gap: 30px; align-items: center; }
 .nav-links a {
   font-size: 14px;
@@ -113,7 +114,7 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   left: 0; right: 0; bottom: -4px;
   height: 2px;
-  background: var(--gold);
+  background: var(--red);
   border-radius: 2px;
 }
 
@@ -133,20 +134,20 @@ a { color: inherit; text-decoration: none; }
   transition: transform 0.18s var(--ease-spring), background 0.18s var(--ease-spring), border-color 0.18s var(--ease-spring), box-shadow 0.18s var(--ease-spring);
   white-space: nowrap;
 }
-.btn:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 3px; }
+.btn:focus-visible { outline: 2px solid var(--red-2); outline-offset: 3px; }
 .btn:active { transform: translateY(1px) scale(0.99); }
-.btn-gold {
-  background: var(--gold);
-  color: #14110a;
-  box-shadow: 0 2px 8px rgba(200, 162, 74, 0.25), 0 8px 28px rgba(200, 162, 74, 0.12);
+.btn-red {
+  background: var(--red-btn);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(214, 69, 69, 0.25), 0 8px 28px rgba(214, 69, 69, 0.12);
 }
-.btn-gold:hover { background: var(--gold-2); transform: translateY(-1px); }
+.btn-red:hover { background: var(--red); transform: translateY(-1px); }
 .btn-ghost {
   background: transparent;
   color: var(--ink);
   border-color: var(--line-strong);
 }
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold-2); transform: translateY(-1px); }
+.btn-ghost:hover { border-color: var(--ink-2); color: var(--ink); transform: translateY(-1px); }
 .btn-sm { padding: 9px 16px; font-size: 13px; }
 
 /* ---------- hero ---------- */
@@ -183,7 +184,7 @@ a { color: inherit; text-decoration: none; }
   max-width: 720px;
 }
 .hero h1 { font-size: clamp(44px, 6.4vw, 84px); margin: 16px 0 18px; }
-.hero h1 em { font-style: italic; color: var(--gold-2); }
+.hero h1 em { font-style: italic; color: var(--red); }
 .hero p { font-size: clamp(16px, 2vw, 19px); color: var(--ink-2); max-width: 54ch; margin: 0 0 32px; }
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 
@@ -196,15 +197,15 @@ a { color: inherit; text-decoration: none; }
 }
 .stat { padding: 30px 28px; border-right: 1px solid var(--line); }
 .stat:last-child { border-right: 0; }
-.stat .n { font-family: 'Newsreader', serif; font-size: 34px; font-weight: 500; color: var(--gold-2); line-height: 1; }
+.stat .n { font-family: 'Newsreader', serif; font-size: 34px; font-weight: 500; color: var(--ink); line-height: 1; }
 .stat .l { font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-top: 10px; }
 
 /* ---------- sections ---------- */
 section { position: relative; padding: 88px 0; }
 .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
 .sec-head h2 { font-size: clamp(30px, 4vw, 44px); margin: 10px 0 0; }
-.sec-head .more { font-size: 14px; font-weight: 600; color: var(--gold); display: inline-flex; align-items: center; gap: 7px; transition: gap 0.18s var(--ease-spring); padding-bottom: 6px; }
-.sec-head .more:hover { gap: 12px; color: var(--gold-2); }
+.sec-head .more { font-size: 14px; font-weight: 600; color: var(--ink-2); display: inline-flex; align-items: center; gap: 7px; transition: gap 0.18s var(--ease-spring); padding-bottom: 6px; }
+.sec-head .more:hover { gap: 12px; color: var(--ink); }
 
 /* ---------- vehicle cards ---------- */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
@@ -225,7 +226,7 @@ section { position: relative; padding: 88px 0; }
   border-color: var(--line-strong);
   box-shadow: var(--shadow-float);
 }
-.vcard:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 3px; }
+.vcard:focus-visible { outline: 2px solid var(--red-2); outline-offset: 3px; }
 .vcard-media { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--bg-2); }
 .vcard-media img {
   width: 100%; height: 100%; object-fit: cover;
@@ -249,10 +250,11 @@ section { position: relative; padding: 88px 0; }
   background: rgba(14, 17, 22, 0.78);
   backdrop-filter: blur(6px);
   border: 1px solid var(--line-strong);
-  color: var(--gold-2);
+  color: var(--ink-2);
   padding: 5px 10px;
   border-radius: 5px;
 }
+.badge-hot { color: var(--red-2); border-color: rgba(214, 69, 69, 0.4); }
 .vcard-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .vcard-title { font-family: 'Newsreader', serif; font-size: 21px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.25; }
 .vcard-title .trim { color: var(--ink-3); font-size: 16px; }
@@ -275,9 +277,9 @@ section { position: relative; padding: 88px 0; }
   padding-top: 14px;
   border-top: 1px solid var(--line);
 }
-.price { font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: var(--gold-2); }
+.price { font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: var(--ink); }
 .vcard-cta { font-size: 13px; font-weight: 600; color: var(--ink-2); transition: color 0.18s var(--ease-spring); }
-.vcard:hover .vcard-cta { color: var(--gold-2); }
+.vcard:hover .vcard-cta { color: var(--ink); }
 
 /* ---------- why strip ---------- */
 .why { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -286,8 +288,8 @@ section { position: relative; padding: 88px 0; }
 .why-card .ico {
   width: 42px; height: 42px;
   display: flex; align-items: center; justify-content: center;
-  background: var(--gold-dim);
-  border: 1px solid rgba(200, 162, 74, 0.3);
+  background: var(--red-dim);
+  border: 1px solid rgba(214, 69, 69, 0.3);
   border-radius: 9px;
   margin-bottom: 18px;
 }
@@ -296,8 +298,8 @@ section { position: relative; padding: 88px 0; }
 
 /* ---------- CTA band ---------- */
 .band {
-  background: linear-gradient(135deg, #1c1708, #221b0c 55%, #1a1f27);
-  border: 1px solid rgba(200, 162, 74, 0.28);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
   border-radius: 14px;
   padding: 52px 56px;
   display: flex;
@@ -312,7 +314,7 @@ section { position: relative; padding: 88px 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(600px 300px at 90% 0%, rgba(200, 162, 74, 0.12), transparent 65%);
+  background: radial-gradient(600px 300px at 90% 0%, rgba(214, 69, 69, 0.08), transparent 65%);
 }
 .band h2 { font-size: clamp(26px, 3.4vw, 38px); margin: 8px 0 10px; }
 .band p { color: var(--ink-2); margin: 0; max-width: 52ch; }
@@ -361,8 +363,8 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 40px; margin-top: 40
   cursor: pointer;
   transition: border-color 0.18s var(--ease-spring);
 }
-.select:hover { border-color: var(--gold); }
-.select:focus-visible { outline: 2px solid var(--gold-2); outline-offset: 2px; }
+.select:hover { border-color: var(--ink-3); }
+.select:focus-visible { outline: 2px solid var(--red-2); outline-offset: 2px; }
 .count { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--ink-3); margin-left: auto; letter-spacing: 0.08em; }
 
 /* ---------- vehicle detail ---------- */
@@ -400,7 +402,7 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 40px; margin-top: 40
 }
 .est-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: var(--ink-2); }
 .est-row .ev { font-family: 'Newsreader', serif; font-size: 24px; font-weight: 600; color: var(--ink); }
-.est input[type=range] { width: 100%; accent-color: var(--gold); margin: 12px 0 2px; cursor: pointer; }
+.est input[type=range] { width: 100%; accent-color: var(--red); margin: 12px 0 2px; cursor: pointer; }
 .est .est-hint { font-size: 11.5px; color: var(--ink-3); }
 
 .field { margin-bottom: 12px; }
@@ -416,7 +418,7 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 40px; margin-top: 40
   transition: border-color 0.18s var(--ease-spring);
 }
 .field input:hover, .field textarea:hover { border-color: var(--ink-3); }
-.field input:focus-visible, .field textarea:focus-visible { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200, 162, 74, 0.15); }
+.field input:focus-visible, .field textarea:focus-visible { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.15); }
 .field input::placeholder, .field textarea::placeholder { color: var(--ink-3); }
 .form-note { font-size: 12px; color: var(--ink-3); margin-top: 12px; line-height: 1.55; }
 .form-success {
@@ -431,7 +433,7 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 40px; margin-top: 40
 }
 
 .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-3); margin-top: 36px; transition: color 0.18s var(--ease-spring); }
-.back-link:hover { color: var(--gold-2); }
+.back-link:hover { color: var(--ink); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 980px) {

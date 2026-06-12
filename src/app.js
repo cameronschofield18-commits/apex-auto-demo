@@ -13,7 +13,7 @@ function cardHTML(v) {
   return `
   <a class="vcard" href="vehicle.html?id=${v.id}">
     <div class="vcard-media">
-      ${v.badge ? `<span class="badge">${v.badge}</span>` : ''}
+      ${v.badge ? `<span class="badge${v.badge === 'Price drop' ? ' badge-hot' : ''}">${v.badge}</span>` : ''}
       <img src="${v.img}" alt="${v.year} ${v.make} ${v.model}" loading="lazy">
     </div>
     <div class="vcard-body">
