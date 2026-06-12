@@ -26,26 +26,53 @@
 </nav>
 
 <header class="hero">
-  <img class="hero-img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80" alt="Featured vehicle at dusk">
-  <div class="hero-tint"></div>
-  <div class="wrap hero-content">
-    <div class="kicker">Premium and exotic pre-owned</div>
-    <h1 class="display">Find your <em>next one.</em></h1>
-    <p>Hand-picked pre-owned vehicles, inspected and certified. Ask about any car and get a real answer in under a minute, any hour of the day.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-red" href="inventory.html">View 10 vehicles in stock</a>
-      <a class="btn btn-ghost" href="#trade">Value my trade</a>
+  <div class="windshield">
+    <img class="hero-img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80" alt="Porsche Panamera at night, seen through the windshield view of the Apex showroom">
+    <div class="hero-tint"></div>
+    <div class="wrap hero-content">
+      <div class="kicker">Premium and exotic pre-owned</div>
+      <h1 class="display">Find your <em>next one.</em></h1>
+      <p>Hand-picked, inspected, certified. Real answers in under a minute, any hour.</p>
+    </div>
+  </div>
+
+  <div class="cluster">
+    <div class="wrap cluster-grid">
+
+      <div class="screen" id="scr-featured" aria-label="Featured vehicles">
+        <div class="scr-head"><span>Featured</span><span class="scr-hint">scroll</span></div>
+        <div class="scr-list" id="featured-list"></div>
+      </div>
+
+      <div class="gauge-col">
+        <svg id="gauge" viewBox="0 0 220 132" role="img" aria-label="Vehicles in stock gauge">
+          <path class="g-track" d="M 30 118 A 88 88 0 1 1 190 118" fill="none" stroke="var(--surface-2)" stroke-width="7" stroke-linecap="round"/>
+          <g class="g-ticks" stroke="var(--ink-3)" stroke-width="2" opacity="0.6">
+            <line x1="36" y1="111" x2="44" y2="105"/>
+            <line x1="49" y1="63"  x2="57" y2="69"/>
+            <line x1="110" y1="29" x2="110" y2="39"/>
+            <line x1="171" y1="63" x2="163" y2="69"/>
+            <line x1="184" y1="111" x2="176" y2="105"/>
+          </g>
+          <g id="needle" transform="rotate(-120 110 118)">
+            <line x1="110" y1="118" x2="110" y2="44" stroke="var(--red)" stroke-width="3" stroke-linecap="round"/>
+          </g>
+          <circle cx="110" cy="118" r="7" fill="var(--red)"/>
+          <text id="gauge-num" x="110" y="86" text-anchor="middle" fill="var(--ink)" font-size="30" font-family="Newsreader, serif">0</text>
+          <text x="110" y="102" text-anchor="middle" fill="var(--ink-3)" font-size="9" font-family="'Geist Mono', monospace" letter-spacing="2">IN STOCK</text>
+        </svg>
+        <a class="btn btn-red ignition" href="inventory.html"><span class="ign-dot"></span>Engine start · Browse inventory</a>
+      </div>
+
+      <div class="screen" id="scr-comms" aria-label="Live response feed">
+        <div class="scr-head"><span>Comms</span><span class="scr-hint blink">live</span></div>
+        <div class="scr-list" id="comms-list"></div>
+        <div class="scr-pin">Avg response <span>&lt; 60s</span></div>
+      </div>
+
     </div>
   </div>
 </header>
-
-<div class="wrap">
-  <div class="stats">
-    <div class="stat"><div class="n">&lt; 60s</div><div class="l">Avg. first response</div></div>
-    <div class="stat"><div class="n">160-pt</div><div class="l">Certification inspection</div></div>
-    <div class="stat"><div class="n">4.9</div><div class="l">Average owner rating</div></div>
-  </div>
-</div>
 
 <section>
   <div class="wash"></div>
