@@ -145,6 +145,61 @@ async function initDetail() {
   document.getElementById('similar').innerHTML = similar.map(cardHTML).join('');
 }
 
+/* ---------- home: dash cluster ---------- */
+const GAUGE_MIN = -120, GAUGE_MAX = 120, GAUGE_SCALE = 12;
+const angleFor = n => GAUGE_MIN + (Math.min(n, GAUGE_SCALE) / GAUGE_SCALE) * (GAUGE_MAX - GAUGE_MIN);
+
+function runGauge(count) {
+  const needle = document.getElementById('needle');
+  const num = document.getElementById('gauge-num');
+  const setAngle = a => needle.setAttribute('transform', `rotate(${a} 110 118)`);
+  const settled = angleFor(count);
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setAngle(settled);
+    num.textContent = count;
+    return;
+  }
+
+  const SWEEP_UP = 700, SWEEP_BACK = 900;
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+  const start = performance.now();
+
+  function frame(now) {
+    const t = now - start;
+    if (t < SWEEP_UP) {
+      setAngle(GAUGE_MIN + easeOut(t / SWEEP_UP) * (GAUGE_MAX - GAUGE_MIN));
+      num.textContent = Math.round(easeOut(t / SWEEP_UP) * GAUGE_SCALE);
+      requestAnimationFrame(frame);
+    } else if (t < SWEEP_UP + SWEEP_BACK) {
+      const p = easeOut((t - SWEEP_UP) / SWEEP_BACK);
+      setAngle(GAUGE_MAX + p * (settled - GAUGE_MAX));
+      num.textContent = Math.round(GAUGE_SCALE + p * (count - GAUGE_SCALE));
+      requestAnimationFrame(frame);
+    } else {
+      num.textContent = count;
+      breathe();
+    }
+  }
+
+  function breathe() {
+    const t0 = performance.now();
+    (function loop(now) {
+      setAngle(settled + Math.sin((now - t0) / 1400) * 0.8);
+      requestAnimationFrame(loop);
+    })(t0);
+  }
+
+  requestAnimationFrame(frame);
+}
+
+async function initDashHero() {
+  if (!document.getElementById('gauge')) return;
+  const vehicles = await loadInventory();
+  runGauge(vehicles.length);
+}
+
 initHome();
 initInventory();
 initDetail();
+initDashHero();
