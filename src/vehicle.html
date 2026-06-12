@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vehicle — Apex Auto Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">APEX <span>AUTO</span> GROUP</a>
+    <div class="nav-links">
+      <a href="inventory.html" class="active">Inventory</a>
+      <a href="index.html#financing">Financing</a>
+      <a href="index.html#trade">Trade-In</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <a class="btn btn-gold btn-sm" href="inventory.html">Browse inventory</a>
+  </div>
+</nav>
+
+<main class="wrap" id="vd-root">
+  <a class="back-link" href="inventory.html">&larr; Back to inventory</a>
+
+  <div class="vd-hero">
+    <img id="vd-img" src="" alt="Vehicle photo">
+  </div>
+
+  <div class="vd-grid">
+    <div>
+      <div class="vd-title">
+        <div class="kicker" id="vd-badge">In stock</div>
+        <h1 class="display" id="vd-name"></h1>
+        <div class="sub" id="vd-sub"></div>
+      </div>
+
+      <p class="muted" id="vd-blurb" style="font-size:17px;max-width:62ch"></p>
+
+      <div class="spec-grid" id="vd-specs"></div>
+
+      <div class="kicker" style="margin-top:34px">Equipment highlights</div>
+      <ul class="features" id="vd-features"></ul>
+    </div>
+
+    <aside class="lead-panel">
+      <div class="pl">Apex certified price</div>
+      <div class="price" id="vd-price"></div>
+
+      <div class="est">
+        <div class="est-row"><span>Est. monthly</span><span class="ev" id="est-monthly"></span></div>
+        <input type="range" id="est-down" min="0" max="30000" step="500" value="5000" aria-label="Down payment">
+        <div class="est-row" style="margin-top:2px">
+          <span class="est-hint">Down: <span id="est-down-label">$5,000</span></span>
+          <span class="est-hint">72 mo · 7.9% APR est.</span>
+        </div>
+      </div>
+
+      <form id="lead-form">
+        <div class="field"><input type="text" id="lf-name" placeholder="Your name" required></div>
+        <div class="field"><input type="tel" id="lf-phone" placeholder="Phone or email" required></div>
+        <div class="field"><textarea id="lf-msg" rows="3" placeholder="Is this still available?"></textarea></div>
+        <button class="btn btn-gold" type="submit" style="width:100%">Check availability</button>
+        <div class="form-success" id="lf-success">Got it. You'll hear back in under a minute, watch your phone.</div>
+        <div class="form-note">Typical reply time is under 60 seconds, any hour. No spam, no call list, just an answer about this car.</div>
+      </form>
+    </aside>
+  </div>
+
+  <section style="padding-top:72px">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Keep looking</div>
+        <h2 class="display">Similar in stock</h2>
+      </div>
+      <a class="more" href="inventory.html">All inventory &rarr;</a>
+    </div>
+    <div class="grid-3" id="similar"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-note">
+      <span>Apex Auto Group · Fictional demo business</span>
+      <span>Demo site · Not a real dealership</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

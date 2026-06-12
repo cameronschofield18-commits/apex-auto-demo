@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory — Apex Auto Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">APEX <span>AUTO</span> GROUP</a>
+    <div class="nav-links">
+      <a href="inventory.html" class="active">Inventory</a>
+      <a href="index.html#financing">Financing</a>
+      <a href="index.html#trade">Trade-In</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <a class="btn btn-gold btn-sm" href="inventory.html">Browse inventory</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wash"></div>
+  <div class="wrap">
+    <div class="kicker">Current stock</div>
+    <h1 class="display">Inventory</h1>
+    <p class="muted" style="max-width:56ch;margin:0">Every car here passed the 160-point certification before listing. See one you like, ask about it, get an answer in under a minute.</p>
+    <div class="filters">
+      <select class="select" id="f-make" aria-label="Filter by make">
+        <option value="">All makes</option>
+      </select>
+      <select class="select" id="f-price" aria-label="Filter by price">
+        <option value="">Any price</option>
+        <option value="0-30000">Under $30k</option>
+        <option value="30000-50000">$30k to $50k</option>
+        <option value="50000-80000">$50k to $80k</option>
+        <option value="80000-999999">$80k and up</option>
+      </select>
+      <select class="select" id="f-sort" aria-label="Sort">
+        <option value="price-asc">Price: low to high</option>
+        <option value="price-desc">Price: high to low</option>
+        <option value="miles-asc">Mileage: lowest first</option>
+        <option value="year-desc">Year: newest first</option>
+      </select>
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:44px">
+  <div class="wrap">
+    <div class="grid-4" id="grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-note">
+      <span>Apex Auto Group · Fictional demo business</span>
+      <span>Demo site · Not a real dealership</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
