@@ -9,8 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.104.1",
     "puppeteer": "^25.1.0"
   }
 }
