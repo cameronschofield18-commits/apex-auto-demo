@@ -19,11 +19,11 @@ Scope doc: `C:\Users\estrix\html-artifacts\2026-06-11-dealership-demo-scope.html
 
 ## Tech decisions
 - Plain HTML/CSS/JS, no framework (speed over reusability — this is a showpiece)
-- Inventory is fake data in `src/data/inventory.json` (10 vehicles)
+- Inventory is fake data in `public/data/inventory.json` (10 vehicles)
 - Vehicle detail page is one template driven by `?id=` query param
-- Serve locally with `node serve.mjs` at http://localhost:3000
-- Screenshots: `node screenshot.mjs http://localhost:3000/src/ [label]` (puppeteer installed in this project)
-- Deploy target: Vercel or Netlify free tier
+- Serve locally with `node serve.mjs` at http://localhost:3000 (serves public/ and mounts /api/chat)
+- Screenshots: `node screenshot.mjs http://localhost:3000/ [label]` (puppeteer installed in this project)
+- Deploy: Vercel (auto-deploy on push to main), serverless function at api/chat.js, ANTHROPIC_API_KEY in Vercel env vars + local .env only
 
 ## Conventions
 - No emojis, no em dashes (user's writing style applies to site copy too)
