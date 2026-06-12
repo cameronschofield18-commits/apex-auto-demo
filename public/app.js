@@ -129,9 +129,22 @@ async function initDetail() {
   down.addEventListener('input', calc);
   calc();
 
-  // lead form (Phase 1: fake success; Phase 2 wires this to the AI follow-up)
+  // lead form: store like chat leads so the Phase 4 dashboard sees both sources
   document.getElementById('lead-form').addEventListener('submit', e => {
     e.preventDefault();
+    const entry = {
+      name: document.getElementById('lf-name').value.trim(),
+      contact: document.getElementById('lf-phone').value.trim(),
+      vehicle_id: v.id,
+      note: document.getElementById('lf-msg').value.trim() || 'Is this still available?',
+      ts: new Date().toISOString(),
+      source: 'form'
+    };
+    try {
+      const all = JSON.parse(localStorage.getItem('apex-leads') || '[]');
+      all.push(entry);
+      localStorage.setItem('apex-leads', JSON.stringify(all));
+    } catch {}
     document.getElementById('lf-success').style.display = 'block';
   });
 
@@ -215,12 +228,24 @@ async function initDashHero() {
       : `<div class="comms-row"><span>Inquiry: ${v.model}</span><span class="c-val">${rand(20, 59)}s</span></div>`;
   };
   for (let i = 0; i < 3; i++) comms.insertAdjacentHTML('afterbegin', makeEvent());
+  let leadPinnedUntil = 0;
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     setInterval(() => {
+      if (Date.now() < leadPinnedUntil) return;
       comms.insertAdjacentHTML('afterbegin', makeEvent());
       while (comms.children.length > 4) comms.lastElementChild.remove();
     }, 4000);
   }
+
+  // real leads from the chat widget take visual priority
+  document.addEventListener('apex-lead', e => {
+    const lead = e.detail;
+    const v = vehicles.find(x => x.id === lead.vehicle_id);
+    comms.insertAdjacentHTML('afterbegin',
+      `<div class="comms-row comms-lead"><span>Lead: ${lead.name}${v ? ' · ' + v.model : ''}</span><span class="c-val">now</span></div>`);
+    while (comms.children.length > 4) comms.lastElementChild.remove();
+    leadPinnedUntil = Date.now() + 30000;
+  });
 }
 
 initHome();

@@ -529,3 +529,5 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 40px; margin-top: 40
 @media (prefers-reduced-motion: reduce) {
   .chat-fab-dot, .chat-typing span { animation: none; }
 }
+.comms-row.comms-lead { border-left: 3px solid var(--red); padding-left: 8px; color: var(--ink); font-weight: 500; }
+.chat-panel[hidden] { display: none; }
