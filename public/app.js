@@ -104,6 +104,8 @@ async function initDetail() {
   const img = document.getElementById('vd-img');
   img.src = v.img;
   img.alt = `${v.year} ${v.make} ${v.model}`;
+  const plEl = document.querySelector('.lead-panel .pl');
+  if (plEl) plEl.textContent = v.condition === 'new' ? 'Apex price' : 'Apex certified price';
   document.getElementById('vd-badge').textContent = v.badge || 'In stock';
   document.getElementById('vd-name').textContent = `${v.year} ${v.make} ${v.model}`;
   document.getElementById('vd-sub').textContent = `${v.trim} · ${v.exterior} over ${v.interior}`;
