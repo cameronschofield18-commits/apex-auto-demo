@@ -36,4 +36,9 @@ r = mockRes();
 await handler(post({ messages: [{ role: 'system', content: 'hi' }] }), r);
 check('bad role 400', r.code === 400);
 
+// 6. handler still resolves shape on POST with valid single message (no throw on structure)
+r = mockRes();
+await handler(post({ messages: [{ role: 'user', content: 'hi' }] }), r).catch(() => {});
+check('valid request does not 400', r.code !== 400);
+
 process.exit(fail ? 1 : 0);

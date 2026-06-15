@@ -32,6 +32,54 @@ const CAPTURE_LEAD = {
   }
 };
 
+const FOLLOWUPS_FORMAT = {
+  type: 'json_schema',
+  schema: {
+    type: 'object',
+    properties: {
+      sms: { type: 'string', description: 'Instant SMS, under 320 chars, personalized to name + vehicle + timeline' },
+      email_subject: { type: 'string' },
+      email_body: { type: 'string', description: 'Instant email, 3-5 sentences, signs off as the Apex sales team' },
+      drip: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            day: { type: 'integer', enum: [1, 3, 7] },
+            channel: { type: 'string', enum: ['sms', 'email'] },
+            subject: { type: 'string', description: 'Email subject; empty string for sms' },
+            text: { type: 'string' }
+          },
+          required: ['day', 'channel', 'subject', 'text'],
+          additionalProperties: false
+        }
+      }
+    },
+    required: ['sms', 'email_subject', 'email_body', 'drip'],
+    additionalProperties: false
+  }
+};
+
+async function draftFollowups(client, vehicles, lead) {
+  const v = lead.vehicle_id && vehicles.find(x => x.id === lead.vehicle_id);
+  const car = v ? `${v.year} ${v.make} ${v.model} ${v.trim} at $${v.price.toLocaleString('en-US')}` : 'the vehicle they asked about';
+  const prompt = `Write a follow-up sequence for a new Apex Auto Group sales lead.
+Lead name: ${lead.name}
+Vehicle: ${car}
+Timeline: ${lead.timeline || 'not specified'}
+Their note: ${lead.note || 'general interest'}
+
+Produce: an instant SMS (short, warm, references the car by name, asks to book a time), an instant email (subject + 3-5 sentence body, signs off "The Apex Auto Group Team"), and a drip of EXACTLY three messages: day 1 sms, day 3 email, day 7 sms. Each drip message escalates gently and stays friendly, never pushy. No emojis. Never invent facts beyond the vehicle and price given. For sms items the subject is an empty string.`;
+  const resp = await client.messages.create({
+    model: MODEL,
+    max_tokens: 800,
+    output_config: { format: FOLLOWUPS_FORMAT },
+    messages: [{ role: 'user', content: prompt }]
+  });
+  const text = resp.content.filter(b => b.type === 'text').map(b => b.text).join('');
+  return JSON.parse(text);
+}
+
 function systemPrompt(vehicles, vehicleContext) {
   const focus = vehicleContext && vehicles.find(v => v.id === vehicleContext);
   return `You are the online sales assistant for Apex Auto Group, a premium and exotic pre-owned dealership. You are sharp, friendly, and human. No emojis. Keep replies to 2-4 short sentences.
@@ -97,7 +145,13 @@ export default async function handler(req, res) {
       ]
     });
     const reply = second.content.filter(b => b.type === 'text').map(b => b.text).join('');
-    return res.status(200).json({ reply, lead: toolUse.input });
+    let followups = null;
+    try {
+      followups = await draftFollowups(client, vehicles, toolUse.input);
+    } catch (e) {
+      console.error('followup draft failed:', e?.message ?? e); // capture still succeeds
+    }
+    return res.status(200).json({ reply, lead: toolUse.input, followups });
   } catch (err) {
     console.error('chat handler error:', err?.status ?? '', err?.message ?? err);
     return res.status(502).json({ error: 'unavailable' });
