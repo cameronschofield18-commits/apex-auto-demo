@@ -572,3 +572,8 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 40px; margin-top: 40
 .ld-replay { align-self: flex-start; background: none; border: 1px solid var(--line-strong); color: var(--red-2); font-family: 'Geist', sans-serif; font-size: 11px; padding: 5px 10px; border-radius: 6px; cursor: pointer; margin-top: 2px; }
 .ld-replay:hover { border-color: var(--red); }
 .ld-replay:focus-visible { outline: 2px solid var(--red-2); }
+.cond-tabs { display: flex; gap: 6px; margin: 16px 0 4px; }
+.cond-tab { background: none; border: 0; border-bottom: 2px solid transparent; color: var(--ink-3); font-family: 'Geist', sans-serif; font-size: 14px; font-weight: 600; padding: 6px 4px; cursor: pointer; transition: color 0.18s var(--ease-spring); }
+.cond-tab:hover { color: var(--ink-2); }
+.cond-tab.active { color: var(--ink); border-bottom-color: var(--red); }
+.cond-tab:focus-visible { outline: 2px solid var(--red-2); outline-offset: 2px; }

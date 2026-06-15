@@ -53,6 +53,11 @@ async function initInventory() {
   const sortSel = document.getElementById('f-sort');
   const count = document.getElementById('count');
 
+  const tabs = [...document.querySelectorAll('.cond-tab')];
+  let cond = new URLSearchParams(location.search).get('cond') || '';
+  if (!['', 'new', 'used'].includes(cond)) cond = '';
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.cond === cond));
+
   [...new Set(vehicles.map(v => v.make))].sort().forEach(m => {
     const o = document.createElement('option');
     o.value = m; o.textContent = m;
@@ -61,6 +66,7 @@ async function initInventory() {
 
   function render() {
     let list = [...vehicles];
+    if (cond) list = list.filter(v => v.condition === cond);
     if (makeSel.value) list = list.filter(v => v.make === makeSel.value);
     if (priceSel.value) {
       const [lo, hi] = priceSel.value.split('-').map(Number);
@@ -78,6 +84,11 @@ async function initInventory() {
   }
 
   [makeSel, priceSel, sortSel].forEach(s => s.addEventListener('change', render));
+  tabs.forEach(t => t.addEventListener('click', () => {
+    cond = t.dataset.cond;
+    tabs.forEach(x => x.classList.toggle('active', x === t));
+    render();
+  }));
   render();
 }
 

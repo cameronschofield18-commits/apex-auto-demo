@@ -29,7 +29,12 @@
   <div class="wrap">
     <div class="kicker">Current stock</div>
     <h1 class="display">Inventory</h1>
-    <p class="muted" style="max-width:56ch;margin:0">Every car here passed the 160-point certification before listing. See one you like, ask about it, get an answer in under a minute.</p>
+    <div class="cond-tabs" role="tablist">
+      <button class="cond-tab active" data-cond="" type="button">All</button>
+      <button class="cond-tab" data-cond="new" type="button">New</button>
+      <button class="cond-tab" data-cond="used" type="button">Pre-Owned</button>
+    </div>
+    <p class="muted" style="max-width:56ch;margin:0">New and hand-picked pre-owned, every one inspected. See one you like, ask about it, get an answer in under a minute.</p>
     <div class="filters">
       <select class="select" id="f-make" aria-label="Filter by make">
         <option value="">All makes</option>
