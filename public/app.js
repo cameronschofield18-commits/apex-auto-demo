@@ -13,7 +13,7 @@ function cardHTML(v) {
   return `
   <a class="vcard" href="vehicle.html?id=${v.id}">
     <div class="vcard-media">
-      ${v.badge ? `<span class="badge${v.badge === 'Price drop' ? ' badge-hot' : ''}">${v.badge}</span>` : ''}
+      ${v.badge ? `<span class="badge${(v.badge === 'Price drop' || v.badge === 'New') ? ' badge-hot' : ''}">${v.badge}</span>` : ''}
       <img src="${v.img}" alt="${v.year} ${v.make} ${v.model}" loading="lazy">
     </div>
     <div class="vcard-body">
@@ -159,7 +159,7 @@ async function initDetail() {
 }
 
 /* ---------- home: dash cluster ---------- */
-const GAUGE_MIN = -120, GAUGE_MAX = 120, GAUGE_SCALE = 12;
+const GAUGE_MIN = -120, GAUGE_MAX = 120, GAUGE_SCALE = 16;
 const angleFor = n => GAUGE_MIN + (Math.min(n, GAUGE_SCALE) / GAUGE_SCALE) * (GAUGE_MAX - GAUGE_MIN);
 
 function runGauge(count) {
