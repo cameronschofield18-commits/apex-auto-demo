@@ -517,9 +517,10 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 40px; margin-top: 40
 .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
 .chat-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--line); background: var(--bg); }
 .chat-form input {
-  flex: 1; background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 8px;
+  flex: 1; min-width: 0; background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 8px;
   color: var(--ink); font-family: 'Geist', sans-serif; font-size: 13.5px; padding: 10px 12px;
 }
+.chat-send { flex: none; }
 .chat-form input:focus-visible { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(214, 69, 69, 0.15); }
 .chat-send { padding: 10px 16px; font-size: 13px; }
 @media (max-width: 640px) {
