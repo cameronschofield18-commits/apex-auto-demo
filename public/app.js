@@ -211,13 +211,17 @@ async function initDashHero() {
   const vehicles = await loadInventory();
   runGauge(vehicles.length);
 
-  const list = document.getElementById('featured-list');
-  list.innerHTML = vehicles.map(v => `
-    <a class="feat-row" href="vehicle.html?id=${v.id}">
-      <img src="${v.img.replace('w=1400', 'w=160')}" alt="${v.year} ${v.make} ${v.model}" loading="lazy">
-      <span class="fr-name">${v.year} ${v.make} ${v.model}</span>
-      <span class="fr-price">${fmtPrice(v.price)}</span>
-    </a>`).join('');
+  const newCount = vehicles.filter(v => v.condition === 'new').length;
+  const usedCount = vehicles.filter(v => v.condition === 'used').length;
+  document.getElementById('browse-btns').innerHTML = `
+    <a class="browse-btn new" href="inventory.html?cond=new">
+      <span class="bb-chip">${newCount}</span>
+      <span class="bb-label"><span class="bb-t">New</span><span class="bb-sub">In stock</span></span>
+    </a>
+    <a class="browse-btn" href="inventory.html?cond=used">
+      <span class="bb-chip">${usedCount}</span>
+      <span class="bb-label"><span class="bb-t">Pre-Owned</span><span class="bb-sub">In stock</span></span>
+    </a>`;
 
   const comms = document.getElementById('comms-list');
   const rand = (a, b) => a + Math.floor(Math.random() * (b - a));
