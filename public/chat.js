@@ -98,7 +98,7 @@
       const data = await resp.json();
       state.messages.push({ role: 'assistant', content: data.reply });
       addBubble('assistant', data.reply);
-      if (data.lead) recordLead(data.lead);
+      if (data.lead) recordLead(data.lead, data.followups);
     } catch (err) {
       typing.remove();
       addBubble('assistant', 'Connection hiccup — give it another try in a second.');
@@ -109,8 +109,8 @@
     }
   });
 
-  function recordLead(lead) {
-    const entry = { ...lead, ts: new Date().toISOString(), source: 'chat' };
+  function recordLead(lead, followups) {
+    const entry = { ...lead, followups: followups || null, ts: new Date().toISOString(), source: 'chat' };
     try {
       const all = JSON.parse(localStorage.getItem('apex-leads') || '[]');
       all.push(entry);

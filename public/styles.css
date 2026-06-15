@@ -532,3 +532,27 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 40px; margin-top: 40
 }
 .comms-row.comms-lead { border-left: 3px solid var(--red); padding-left: 8px; color: var(--ink); font-weight: 500; }
 .chat-panel[hidden] { display: none; }
+/* ---------- follow-up phone overlay ---------- */
+.fu-overlay { position: fixed; right: 22px; bottom: 88px; z-index: 95; }
+.fu-phone { width: 280px; background: #0a0a0b; border: 7px solid #1c1c1f; border-radius: 28px; overflow: hidden; box-shadow: var(--shadow-float); font-family: 'Geist', sans-serif; }
+.fu-top { height: 22px; background: #1c1c1f; display: flex; align-items: center; justify-content: center; }
+.fu-notch { width: 70px; height: 5px; background: #0a0a0b; border-radius: 3px; }
+.fu-head { padding: 10px 12px; border-bottom: 1px solid #222; text-align: center; }
+.fu-from { color: var(--ink); font-size: 13px; font-weight: 600; }
+.fu-sub { color: var(--ink-3); font-size: 9px; font-family: 'Geist Mono', monospace; letter-spacing: 0.1em; margin-top: 2px; }
+.fu-thread { padding: 14px 12px; min-height: 170px; max-height: 320px; overflow-y: auto; background: var(--bg); display: flex; flex-direction: column; gap: 9px; scrollbar-width: thin; scrollbar-color: var(--surface-2) transparent; }
+.fu-bubble { background: var(--surface-2); color: var(--ink); font-size: 12px; line-height: 1.5; padding: 9px 11px; border-radius: 13px; border-bottom-left-radius: 4px; max-width: 88%; align-self: flex-start; animation: feedin 0.4s var(--ease-spring); }
+.fu-email { background: var(--bg-2); border: 1px solid var(--line-strong); border-radius: 10px; padding: 9px 11px; max-width: 92%; align-self: flex-start; animation: feedin 0.4s var(--ease-spring); }
+.fu-email-h { font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red-2); }
+.fu-email-s { color: var(--ink); font-size: 12px; margin-top: 3px; }
+.fu-stamp { font-size: 8.5px; color: var(--ink-3); font-family: 'Geist Mono', monospace; margin-top: 5px; }
+.fu-actions { display: flex; gap: 8px; align-items: center; padding: 10px 12px; border-top: 1px solid #222; background: #0d0d0e; }
+.fu-ff { flex: 1; font-size: 12px; padding: 9px 12px; }
+.fu-close { flex: none; background: none; border: 0; color: var(--ink-3); font-size: 22px; line-height: 1; cursor: pointer; padding: 2px 8px; }
+.fu-close:hover { color: var(--ink); }
+.fu-close:focus-visible { outline: 2px solid var(--red-2); }
+.fu-overlay[hidden] { display: none; }
+@media (max-width: 640px) {
+  .fu-overlay { right: 8px; left: 8px; bottom: 8px; }
+  .fu-phone { width: auto; max-width: 320px; margin: 0 auto; }
+}
