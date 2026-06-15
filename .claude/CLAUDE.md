@@ -11,7 +11,7 @@ Live site: https://apex-auto-demo.vercel.app (canonical; GitHub Pages retired)
 - Phase 1: static shell (home, inventory grid, vehicle detail) — DONE
 - Phase 1.5: dash-hero redesign + Signal palette — DONE (see specs/plans 2026-06-11)
 - Phase 2: AI chat assistant (Claude API) answering inventory Q&A + capturing leads — DONE (specs/plans 2026-06-12)
-- Phase 3: instant auto-follow-up shown in a mock inbox UI (no real email/SMS sending)
+- Phase 3: instant auto-follow-up (AI SMS+email+drip) in a mock phone + dash expansion — DONE (specs/plans 2026-06-15)
 - Phase 4: lead dashboard (reads localStorage["apex-leads"]) + 3-minute demo video
 
 ## Design direction (Signal palette, applied site-wide)
