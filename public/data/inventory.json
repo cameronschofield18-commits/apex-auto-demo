@@ -153,23 +153,23 @@
       "blurb": "The do-everything Audi. Coupe looks, hatchback practicality, quattro grip."
     },
     {
-      "id": "grand-cherokee-2019",
+      "id": "expedition-2019",
       "year": 2019,
-      "make": "Jeep",
-      "model": "Grand Cherokee",
+      "make": "Ford",
+      "model": "Expedition",
       "trim": "Limited 4x4",
-      "price": 27990,
+      "price": 43990,
       "mileage": 41860,
-      "exterior": "Bright White",
+      "exterior": "Oxford White",
       "interior": "Black Leather",
-      "engine": "3.6L V6",
-      "transmission": "8-speed automatic",
+      "engine": "3.5L EcoBoost V6",
+      "transmission": "10-speed automatic",
       "drivetrain": "4WD",
-      "mpg": "19 city / 26 hwy",
+      "mpg": "17 city / 22 hwy",
       "badge": "New arrival",
       "img": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1400&q=80",
-      "features": ["Roof rack and tow package", "Heated leather seats", "Panoramic sunroof", "Apple CarPlay", "Remote start"],
-      "blurb": "The family SUV that still likes a dirt road. Towed nothing, garaged, dealer-maintained."
+      "features": ["Power-fold third row seating", "Heated and ventilated leather seats", "Panoramic vista roof", "Class IV tow package", "360-degree camera", "Apple CarPlay"],
+      "blurb": "The three-row hauler that still likes a dirt road. Seats eight, tows the boat, dealer-maintained since new."
     },
     {
       "id": "huracan-2017",
