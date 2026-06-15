@@ -241,10 +241,25 @@ async function initDashHero() {
   document.addEventListener('apex-lead', e => {
     const lead = e.detail;
     const v = vehicles.find(x => x.id === lead.vehicle_id);
-    comms.insertAdjacentHTML('afterbegin',
-      `<div class="comms-row comms-lead"><span>Lead: ${lead.name}${v ? ' · ' + v.model : ''}</span><span class="c-val">now</span></div>`);
+    const f = lead.followups;
+    const expand = f ? `
+      <div class="lead-detail" hidden>
+        <div class="ld-line"><span class="ld-k">SMS</span>${(f.sms || '').replace(/</g, '&lt;')}</div>
+        <div class="ld-line"><span class="ld-k">Email</span>${(f.email_subject || '').replace(/</g, '&lt;')}</div>
+        <button class="ld-replay" type="button">Replay on phone</button>
+      </div>` : '';
+    const row = document.createElement('div');
+    row.className = 'comms-row comms-lead' + (f ? ' has-detail' : '');
+    row.innerHTML = `<div class="cl-head"><span>Lead: ${lead.name}${v ? ' · ' + v.model : ''}</span><span class="c-val">${f ? 'SMS+email' : 'now'}</span></div>${expand}`;
+    comms.insertBefore(row, comms.firstChild);
     while (comms.children.length > 4) comms.lastElementChild.remove();
     leadPinnedUntil = Date.now() + 30000;
+    if (f) {
+      const detail = row.querySelector('.lead-detail');
+      row.querySelector('.cl-head').addEventListener('click', () => { detail.hidden = !detail.hidden; });
+      row.querySelector('.ld-replay').addEventListener('click', () =>
+        document.dispatchEvent(new CustomEvent('apex-replay', { detail: f })));
+    }
   });
 }
 

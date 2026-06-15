@@ -556,3 +556,11 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 40px; margin-top: 40
   .fu-overlay { right: 8px; left: 8px; bottom: 8px; }
   .fu-phone { width: auto; max-width: 320px; margin: 0 auto; }
 }
+.comms-lead .cl-head { display: flex; justify-content: space-between; gap: 10px; }
+.comms-lead.has-detail .cl-head { cursor: pointer; }
+.lead-detail { margin-top: 7px; padding-top: 7px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 5px; }
+.ld-line { font-size: 11px; color: var(--ink-2); line-height: 1.45; }
+.ld-k { font-family: 'Geist Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-right: 7px; }
+.ld-replay { align-self: flex-start; background: none; border: 1px solid var(--line-strong); color: var(--red-2); font-family: 'Geist', sans-serif; font-size: 11px; padding: 5px 10px; border-radius: 6px; cursor: pointer; margin-top: 2px; }
+.ld-replay:hover { border-color: var(--red); }
+.ld-replay:focus-visible { outline: 2px solid var(--red-2); }
