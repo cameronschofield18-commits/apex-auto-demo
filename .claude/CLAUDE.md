@@ -4,17 +4,21 @@
 A portfolio showpiece: a fictional used-car dealership website with an AI lead-capture + auto-follow-up layer. Built to demo to prospects (web clients and potential employers), not for a real business.
 
 Scope doc: `C:\Users\estrix\html-artifacts\2026-06-11-dealership-demo-scope.html`
+Live site: https://apex-auto-demo.vercel.app (canonical; GitHub Pages retired)
 
 ## Goals
 - Look like a premium, modern dealership site (deliberately the opposite of cluttered 2012 dealer sites)
-- Phase 1: static shell (home, inventory grid, vehicle detail) — THIS PHASE
-- Phase 2: AI chat assistant (Claude API) that answers inventory questions and captures leads
+- Phase 1: static shell (home, inventory grid, vehicle detail) — DONE
+- Phase 1.5: dash-hero redesign + Signal palette — DONE (see specs/plans 2026-06-11)
+- Phase 2: AI chat assistant (Claude API) answering inventory Q&A + capturing leads — DONE (specs/plans 2026-06-12)
 - Phase 3: instant auto-follow-up shown in a mock inbox UI (no real email/SMS sending)
-- Phase 4: lead dashboard + 3-minute demo video
+- Phase 4: lead dashboard (reads localStorage["apex-leads"]) + 3-minute demo video
 
-## Design direction
-- Near-black base (#0E1116), elevated surfaces (#1A1F27), warm metallic gold accent (#C8A24A), off-white type (#E7E3DA), cool blue (#2A6B8A) reserved for the AI assistant
-- Fonts: Newsreader (display serif) + Geist (body/UI)
+## Design direction (Signal palette, applied site-wide)
+- Warm near-black base (#0D0D0E), surfaces (#18181A), bone text (#ECE7DC), single caliper-red accent (#D64545; #C73E3E on solid buttons for AA contrast)
+- Red is reserved for: CTAs, gauge needle, prices that dropped, hot/lead signals. Never small body text.
+- Fonts: Newsreader (display serif) + Geist (body/UI) + Geist Mono (labels)
+- Home hero is a functional digital dash: live gauge (stock count), scrollable featured screen, cycling comms feed (AI lead rows land here)
 - Photography-forward, generous space, restrained motion
 
 ## Tech decisions
