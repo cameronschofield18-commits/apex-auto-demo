@@ -1,6 +1,7 @@
 {
   "vehicles": [
     {
+      "condition": "used",
       "id": "mustang-gt-2022",
       "year": 2022,
       "make": "Ford",
@@ -16,10 +17,17 @@
       "mpg": "15 city / 24 hwy",
       "badge": "Certified",
       "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1400&q=80",
-      "features": ["Performance package", "Heated and ventilated seats", "B&O 12-speaker audio", "Active valve exhaust", "Rear camera"],
+      "features": [
+        "Performance package",
+        "Heated and ventilated seats",
+        "B&O 12-speaker audio",
+        "Active valve exhaust",
+        "Rear camera"
+      ],
       "blurb": "One-owner GT with the manual most buyers wish they had ordered. Full service history, new rear tires."
     },
     {
+      "condition": "used",
       "id": "panamera-gts-2020",
       "year": 2020,
       "make": "Porsche",
@@ -35,10 +43,17 @@
       "mpg": "17 city / 23 hwy",
       "badge": "New arrival",
       "img": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80",
-      "features": ["Sport Chrono package", "Adaptive air suspension", "Bose surround", "Lane keep assist", "Sport exhaust"],
+      "features": [
+        "Sport Chrono package",
+        "Adaptive air suspension",
+        "Bose surround",
+        "Lane keep assist",
+        "Sport exhaust"
+      ],
       "blurb": "A four-door that sounds like a race car. 453 horsepower, clean Carfax, fresh major service."
     },
     {
+      "condition": "used",
       "id": "bmw-m4-2019",
       "year": 2019,
       "make": "BMW",
@@ -54,10 +69,17 @@
       "mpg": "17 city / 24 hwy",
       "badge": "Certified",
       "img": "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1400&q=80",
-      "features": ["Competition package, 444 hp", "Harman Kardon audio", "Adaptive M suspension", "Head-up display", "Carbon roof"],
+      "features": [
+        "Competition package, 444 hp",
+        "Harman Kardon audio",
+        "Adaptive M suspension",
+        "Head-up display",
+        "Carbon roof"
+      ],
       "blurb": "The last of the F82s, Competition spec. Two keys, books, no stories."
     },
     {
+      "condition": "used",
       "id": "mclaren-720s-2019",
       "year": 2019,
       "make": "McLaren",
@@ -73,10 +95,17 @@
       "mpg": "15 city / 22 hwy",
       "badge": "Price drop",
       "img": "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1400&q=80",
-      "features": ["710 horsepower", "Retractable hardtop", "Carbon ceramic brakes", "Variable drift control", "Front axle lift"],
+      "features": [
+        "710 horsepower",
+        "Retractable hardtop",
+        "Carbon ceramic brakes",
+        "Variable drift control",
+        "Front axle lift"
+      ],
       "blurb": "Doors up, top down, 710 horsepower. Dealer-serviced from new with every record on file."
     },
     {
+      "condition": "used",
       "id": "camaro-ss-2018",
       "year": 2018,
       "make": "Chevrolet",
@@ -92,10 +121,17 @@
       "mpg": "16 city / 25 hwy",
       "badge": null,
       "img": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1400&q=80",
-      "features": ["1LE track package", "Recaro seats", "Magnetic ride control", "Brembo brakes", "Performance data recorder"],
+      "features": [
+        "1LE track package",
+        "Recaro seats",
+        "Magnetic ride control",
+        "Brembo brakes",
+        "Performance data recorder"
+      ],
       "blurb": "A real 1LE car, not a clone. Adult-owned, never tracked, every record since new."
     },
     {
+      "condition": "used",
       "id": "tesla-model3-2022",
       "year": 2022,
       "make": "Tesla",
@@ -111,10 +147,17 @@
       "mpg": "358 mi range",
       "badge": "Certified",
       "img": "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1400&q=80",
-      "features": ["Autopilot", "Premium connectivity", "Heated seats all around", "Glass roof", "Sentry mode"],
+      "features": [
+        "Autopilot",
+        "Premium connectivity",
+        "Heated seats all around",
+        "Glass roof",
+        "Sentry mode"
+      ],
       "blurb": "Battery health report included, 92 percent capacity. Charges at home, commutes for pennies."
     },
     {
+      "condition": "used",
       "id": "fiat-500-2018",
       "year": 2018,
       "make": "Fiat",
@@ -130,10 +173,17 @@
       "mpg": "28 city / 33 hwy",
       "badge": null,
       "img": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1400&q=80",
-      "features": ["Fixed glass roof", "Beats audio", "Heated front seats", "Rear park assist", "16-inch alloys"],
+      "features": [
+        "Fixed glass roof",
+        "Beats audio",
+        "Heated front seats",
+        "Rear park assist",
+        "16-inch alloys"
+      ],
       "blurb": "The friendliest car on the lot and the cheapest to run. Perfect first car or city runabout."
     },
     {
+      "condition": "used",
       "id": "audi-a7-2019",
       "year": 2019,
       "make": "Audi",
@@ -149,10 +199,17 @@
       "mpg": "22 city / 29 hwy",
       "badge": null,
       "img": "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1400&q=80",
-      "features": ["Virtual cockpit", "Quattro AWD", "B&O 3D sound", "Adaptive cruise", "Matrix LED headlights"],
+      "features": [
+        "Virtual cockpit",
+        "Quattro AWD",
+        "B&O 3D sound",
+        "Adaptive cruise",
+        "Matrix LED headlights"
+      ],
       "blurb": "The do-everything Audi. Coupe looks, hatchback practicality, quattro grip."
     },
     {
+      "condition": "used",
       "id": "expedition-2019",
       "year": 2019,
       "make": "Ford",
@@ -168,10 +225,18 @@
       "mpg": "17 city / 22 hwy",
       "badge": "New arrival",
       "img": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1400&q=80",
-      "features": ["Power-fold third row seating", "Heated and ventilated leather seats", "Panoramic vista roof", "Class IV tow package", "360-degree camera", "Apple CarPlay"],
+      "features": [
+        "Power-fold third row seating",
+        "Heated and ventilated leather seats",
+        "Panoramic vista roof",
+        "Class IV tow package",
+        "360-degree camera",
+        "Apple CarPlay"
+      ],
       "blurb": "The three-row hauler that still likes a dirt road. Seats eight, tows the boat, dealer-maintained since new."
     },
     {
+      "condition": "used",
       "id": "huracan-2017",
       "year": 2017,
       "make": "Lamborghini",
@@ -187,8 +252,118 @@
       "mpg": "14 city / 20 hwy",
       "badge": "Certified",
       "img": "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=1400&q=80",
-      "features": ["5.2L naturally aspirated V10", "Rear-wheel drive spec", "Carbon interior package", "Lifting system", "Sport exhaust"],
+      "features": [
+        "5.2L naturally aspirated V10",
+        "Rear-wheel drive spec",
+        "Carbon interior package",
+        "Lifting system",
+        "Sport exhaust"
+      ],
       "blurb": "The purist's Huracan, rear-drive and naturally aspirated. Serviced, inspected, ready."
+    },
+    {
+      "condition": "new",
+      "id": "porsche-911-gt3-2024",
+      "year": 2024,
+      "make": "Porsche",
+      "model": "911",
+      "trim": "GT3",
+      "price": 189900,
+      "mileage": 14,
+      "exterior": "Carrara White",
+      "interior": "Black Race-Tex",
+      "engine": "4.0L naturally aspirated flat-6",
+      "transmission": "7-speed PDK",
+      "drivetrain": "RWD",
+      "mpg": "15 city / 18 hwy",
+      "badge": "New",
+      "img": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1400&q=80",
+      "features": [
+        "Full factory warranty",
+        "Carbon ceramic brakes",
+        "Track-focused aero package",
+        "Bucket seats",
+        "Sport Chrono"
+      ],
+      "blurb": "Brand new GT3, delivery miles only. The most track-bred 911 you can drive off a showroom floor, full factory warranty."
+    },
+    {
+      "condition": "new",
+      "id": "bmw-m4-2024",
+      "year": 2024,
+      "make": "BMW",
+      "model": "M4",
+      "trim": "Competition xDrive",
+      "price": 83500,
+      "mileage": 18,
+      "exterior": "Brooklyn Grey",
+      "interior": "Black Merino",
+      "engine": "3.0L Twin-Turbo I6",
+      "transmission": "8-speed automatic",
+      "drivetrain": "AWD",
+      "mpg": "16 city / 23 hwy",
+      "badge": "New",
+      "img": "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1400&q=80",
+      "features": [
+        "Full factory warranty",
+        "503 hp",
+        "M xDrive all-wheel drive",
+        "Harman Kardon audio",
+        "Head-up display"
+      ],
+      "blurb": "New M4 Competition xDrive, delivery miles only. All-weather grip and 503 horsepower, every mile still ahead of it."
+    },
+    {
+      "condition": "new",
+      "id": "amg-gt-2024",
+      "year": 2024,
+      "make": "Mercedes-AMG",
+      "model": "GT",
+      "trim": "GT C Coupe",
+      "price": 139900,
+      "mileage": 7,
+      "exterior": "Magno Black (matte)",
+      "interior": "Black Nappa",
+      "engine": "4.0L Biturbo V8",
+      "transmission": "7-speed AMG DCT",
+      "drivetrain": "RWD",
+      "mpg": "15 city / 20 hwy",
+      "badge": "New",
+      "img": "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1400&q=80",
+      "features": [
+        "Full factory warranty",
+        "AMG Panamericana grille",
+        "Active rear-wheel steering",
+        "Burmester audio",
+        "Matte Magno paint"
+      ],
+      "blurb": "New AMG GT C in matte Magno black, delivery miles only. Hand-built V8, full factory warranty, zero stories."
+    },
+    {
+      "condition": "new",
+      "id": "audi-rs7-2024",
+      "year": 2024,
+      "make": "Audi",
+      "model": "RS7",
+      "trim": "Sportback",
+      "price": 125900,
+      "mileage": 22,
+      "exterior": "Nardo Grey",
+      "interior": "Black Valcona",
+      "engine": "4.0L Twin-Turbo V8",
+      "transmission": "8-speed Tiptronic",
+      "drivetrain": "AWD",
+      "mpg": "15 city / 22 hwy",
+      "badge": "New",
+      "img": "https://images.unsplash.com/photo-1606152421802-db97b9c7a11b?auto=format&fit=crop&w=1400&q=80",
+      "features": [
+        "Full factory warranty",
+        "591 hp quattro",
+        "Dynamic all-wheel steering",
+        "Bang & Olufsen 3D audio",
+        "Carbon optic package"
+      ],
+      "blurb": "New RS7 Sportback in Nardo Grey, delivery miles only. Four doors, 591 horsepower, full factory warranty."
     }
   ]
 }
