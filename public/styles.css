@@ -459,8 +459,7 @@ footer { border-top: 1px solid var(--line); padding: 48px 0 40px; margin-top: 40
   .features { columns: 1; }
   .wrap { padding: 0 20px; }
   section { padding: 64px 0; }
-  .hero { min-height: 0; }
-  .windshield { min-height: 300px; flex: none; height: 45vh; }
+  .hero { min-height: 86vh; }
   .cluster-grid { display: flex; flex-direction: column; }
   .gauge-col { order: -1; }
   #gauge { max-width: 220px; }
