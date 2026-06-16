@@ -84,16 +84,41 @@ export function initHero3D(canvas, reduce) {
   }
   resize(); window.addEventListener('resize', resize);
 
+  // mouse parallax
+  const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+  if (!reduce) window.addEventListener('mousemove', e => {
+    mouse.tx = e.clientX / window.innerWidth - 0.5;
+    mouse.ty = e.clientY / window.innerHeight - 0.5;
+  });
+
   const state = { scroll: 0 };
   const t0 = performance.now();
   function frame(now) {
     const t = (now - t0) / 1000;
-    car.rotation.y = reduce ? -0.55 : (-0.55 + t * 0.16 + state.scroll * Math.PI);
+
+    // materialize-on intro: lines fade + car scales up over ~1.4s
+    const ease = 1 - Math.pow(1 - Math.min(t / 1.4, 1), 3);
+    car.children.forEach(c => {
+      const base = c.material.userData.base ?? (c.material.userData.base = c.material.opacity);
+      c.material.opacity = base * ease;
+    });
+    car.scale.setScalar(0.9 + 0.1 * ease);
+
+    mouse.x += (mouse.tx - mouse.x) * 0.05;
+    mouse.y += (mouse.ty - mouse.y) * 0.05;
+    car.rotation.y = -0.55 + t * 0.14 + state.scroll * Math.PI + mouse.x * 0.45;
+    car.rotation.x = mouse.y * 0.10;
+    camera.position.x = 0.2 + mouse.x * 0.5;
+    camera.lookAt(0, 0.95, 0);
+
     scan.position.y = 0.9 + Math.sin(t * 1.1) * 0.55;
     scan.material.opacity = 0.6 * (0.55 + 0.45 * Math.sin(t * 1.1));
     (composer || renderer).render(scene, camera);
     if (!reduce) requestAnimationFrame(frame);
   }
-  if (reduce) { resize(); (composer || renderer).render(scene, camera); } else { requestAnimationFrame(frame); }
+  if (reduce) {
+    car.scale.setScalar(1); car.rotation.y = -0.55;
+    resize(); (composer || renderer).render(scene, camera);
+  } else requestAnimationFrame(frame);
   return state;
 }
