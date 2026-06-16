@@ -42,7 +42,8 @@ function buildCar() {
 
 export function initHero3D(canvas, reduce) {
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+  scene.fog = new THREE.FogExp2(0x050507, 0.09);
+  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 120);
   camera.position.set(0.2, 1.35, 6.2);
   camera.lookAt(0, 0.95, 0);
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
@@ -51,6 +52,12 @@ export function initHero3D(canvas, reduce) {
 
   const car = buildCar();
   scene.add(car);
+
+  // receding grid floor (fades into fog for depth)
+  const grid = new THREE.GridHelper(90, 90, 0xd64545, 0x244055);
+  grid.material.transparent = true; grid.material.opacity = 0.55;
+  grid.position.y = -0.55;
+  scene.add(grid);
 
   // bloom post-processing so the holographic lines emit light
   let composer = null;
