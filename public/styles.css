@@ -583,3 +583,14 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 [data-reveal] { will-change: transform, opacity; }
 @media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1 !important; transform: none !important; } }
+
+/* ---------- cockpit chrome + boot ---------- */
+.hud-grid { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(214,69,69,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(214,69,69,0.04) 1px, transparent 1px);
+  background-size: 44px 44px; mask-image: radial-gradient(120% 90% at 50% 0%, #000, transparent 80%); -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000, transparent 80%); }
+.boot { position: fixed; inset: 0; z-index: 200; background: #050506; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; transition: opacity 0.6s ease, visibility 0.6s; }
+.boot.done { opacity: 0; visibility: hidden; }
+.boot-line { font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 0.5em; color: var(--ink-2); text-transform: uppercase; }
+.boot-bar { width: 180px; height: 2px; background: var(--surface-2); overflow: hidden; }
+.boot-bar span { display: block; height: 100%; width: 0; background: var(--red); }
+@media (prefers-reduced-motion: reduce) { .boot { display: none; } }

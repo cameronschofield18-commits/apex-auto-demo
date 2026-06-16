@@ -23,4 +23,15 @@ gsap.utils.toArray('[data-reveal]').forEach(el => {
   });
 });
 
+// ignition boot
+const boot = document.getElementById('boot');
+if (boot && !reduce) {
+  const bar = boot.querySelector('.boot-bar span');
+  gsap.timeline()
+    .to(bar, { width: '100%', duration: 1.1, ease: 'power2.inOut' })
+    .to(boot, { opacity: 0, duration: 0.5, onComplete: () => boot.classList.add('done') }, '+=0.15');
+} else if (boot) {
+  boot.classList.add('done');
+}
+
 export { gsap, ScrollTrigger, lenis, reduce };
