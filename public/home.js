@@ -40,4 +40,33 @@ const heroCanvas = document.getElementById('hero-canvas');
 let heroState = null;
 if (heroCanvas) heroState = initHero3D(heroCanvas, reduce);
 
+// scroll choreography
+if (heroState && !reduce) {
+  ScrollTrigger.create({
+    trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true,
+    onUpdate: self => { heroState.scroll = self.progress; }
+  });
+  const clusterSection = document.getElementById('cluster-section');
+  if (clusterSection) {
+    gsap.timeline({ scrollTrigger: { trigger: clusterSection, start: 'top 72%' } })
+      .from('.gauge-col', { scale: 0.85, opacity: 0, duration: 0.7, ease: 'power3.out' })
+      .from('#scr-browse', { x: -30, opacity: 0, duration: 0.6 }, '-=0.4')
+      .from('#scr-comms', { x: 30, opacity: 0, duration: 0.6 }, '-=0.6');
+  }
+}
+
+// hover-tilt on featured cards (after app.js populates them)
+window.addEventListener('load', () => {
+  if (reduce) return;
+  document.querySelectorAll('#featured .vcard').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const rx = ((e.clientY - r.top) / r.height - 0.5) * -6;
+      const ry = ((e.clientX - r.left) / r.width - 0.5) * 6;
+      card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+});
+
 export { gsap, ScrollTrigger, lenis, reduce, heroState };
