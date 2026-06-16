@@ -15,11 +15,12 @@ if (!reduce) {
 }
 
 // basic reveal for anything marked data-reveal
+// immediateRender:false keeps elements visible by default; animation only runs on entry
 gsap.utils.toArray('[data-reveal]').forEach(el => {
   if (reduce) { el.style.opacity = 1; return; }
   gsap.fromTo(el, { y: 28, opacity: 0 }, {
-    y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 85%' }
+    y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', immediateRender: false,
+    scrollTrigger: { trigger: el, start: 'top 88%' }
   });
 });
 
@@ -48,7 +49,7 @@ if (heroState && !reduce) {
   });
   const clusterSection = document.getElementById('cluster-section');
   if (clusterSection) {
-    gsap.timeline({ scrollTrigger: { trigger: clusterSection, start: 'top 72%' } })
+    gsap.timeline({ defaults: { immediateRender: false }, scrollTrigger: { trigger: clusterSection, start: 'top 72%' } })
       .from('.gauge-col', { scale: 0.85, opacity: 0, duration: 0.7, ease: 'power3.out' })
       .from('#scr-browse', { x: -30, opacity: 0, duration: 0.6 }, '-=0.4')
       .from('#scr-comms', { x: 30, opacity: 0, duration: 0.6 }, '-=0.6');
@@ -68,5 +69,12 @@ window.addEventListener('load', () => {
     card.addEventListener('mouseleave', () => { card.style.transform = ''; });
   });
 });
+
+// wedge number pop
+if (!reduce) {
+  const wn = document.querySelector('.wedge-num');
+  if (wn) gsap.fromTo(wn, { scale: 1.18, opacity: 0 }, { scale: 1, opacity: 1, duration: 1, ease: 'power3.out', immediateRender: false,
+    scrollTrigger: { trigger: '#wedge', start: 'top 78%' } });
+}
 
 export { gsap, ScrollTrigger, lenis, reduce, heroState };

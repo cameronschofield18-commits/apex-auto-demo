@@ -584,3 +584,12 @@ html.lenis, html.lenis body { height: auto; }
 .boot-bar { width: 180px; height: 2px; background: var(--surface-2); overflow: hidden; }
 .boot-bar span { display: block; height: 100%; width: 0; background: var(--red); }
 @media (prefers-reduced-motion: reduce) { .boot { display: none; } }
+
+/* ---------- wedge beat ---------- */
+.wedge { padding: 18vh 0; position: relative; }
+.wedge-num { font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(64px, 16vw, 220px); line-height: 0.9; color: var(--ink); letter-spacing: -0.04em; margin: 6px 0 0; }
+.wedge-num span { display: block; font-family: 'Geist Mono', monospace; font-size: clamp(12px, 1.6vw, 18px); letter-spacing: 0.4em; text-transform: uppercase; color: var(--red-2); margin-top: 14px; }
+.wedge-copy { max-width: 52ch; color: var(--ink-2); font-size: clamp(15px, 2vw, 19px); margin: 28px 0; }
+/* glassier chat + phone to match cockpit */
+.chat-panel, .fu-phone { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.chat-panel { background: rgba(18,18,19,0.82); }
