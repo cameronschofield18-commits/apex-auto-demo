@@ -1,4 +1,7 @@
 import * as THREE from 'https://esm.sh/three@0.160.0';
+import { EffectComposer } from 'https://esm.sh/three@0.160.0/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'https://esm.sh/three@0.160.0/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'https://esm.sh/three@0.160.0/examples/jsm/postprocessing/UnrealBloomPass.js';
 
 // Hero car is a procedural sports-car silhouette rendered as a holographic schematic.
 // (No external model: avoids licensing + asset-mismatch risk; wireframe is on-concept.)
@@ -44,9 +47,19 @@ export function initHero3D(canvas, reduce) {
   camera.lookAt(0, 0.95, 0);
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(0x000000, 0);
 
   const car = buildCar();
   scene.add(car);
+
+  // bloom post-processing so the holographic lines emit light
+  let composer = null;
+  function buildComposer(w, h) {
+    composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+    composer.addPass(new UnrealBloomPass(new THREE.Vector2(w, h), 0.95, 0.5, 0.0));
+    composer.setSize(w, h);
+  }
 
   // sweeping scan line
   const scan = new THREE.Mesh(
@@ -60,6 +73,7 @@ export function initHero3D(canvas, reduce) {
     if (r.width === 0 || r.height === 0) return;
     renderer.setSize(r.width, r.height, false);
     camera.aspect = r.width / r.height; camera.updateProjectionMatrix();
+    buildComposer(r.width, r.height);
   }
   resize(); window.addEventListener('resize', resize);
 
@@ -70,9 +84,9 @@ export function initHero3D(canvas, reduce) {
     car.rotation.y = reduce ? -0.55 : (-0.55 + t * 0.16 + state.scroll * Math.PI);
     scan.position.y = 0.9 + Math.sin(t * 1.1) * 0.55;
     scan.material.opacity = 0.6 * (0.55 + 0.45 * Math.sin(t * 1.1));
-    renderer.render(scene, camera);
+    (composer || renderer).render(scene, camera);
     if (!reduce) requestAnimationFrame(frame);
   }
-  if (reduce) { resize(); renderer.render(scene, camera); } else { requestAnimationFrame(frame); }
+  if (reduce) { resize(); (composer || renderer).render(scene, camera); } else { requestAnimationFrame(frame); }
   return state;
 }
