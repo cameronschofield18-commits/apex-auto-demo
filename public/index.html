@@ -31,17 +31,27 @@
   </div>
 </nav>
 
-<header class="hero">
-  <div class="windshield">
-    <img class="hero-img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80" alt="Porsche Panamera at night, seen through the windshield view of the Apex showroom">
-    <div class="hero-tint"></div>
-    <div class="wrap hero-content">
-      <div class="kicker">New &amp; pre-owned · Premium and exotic</div>
-      <h1 class="display">Find your <em>next one.</em></h1>
-      <p>New and hand-picked pre-owned, every one inspected. Real answers in under a minute, any hour.</p>
-    </div>
+<header class="hero" id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-readouts" aria-hidden="true">
+    <div class="ro ro-tl"><span>Model</span><b id="ro-model">Porsche 911 GT3</b></div>
+    <div class="ro ro-tr"><span>In stock</span><b class="rd">14</b></div>
+    <div class="ro ro-bl"><span>0-60</span><b>3.2s</b></div>
+    <div class="ro ro-br"><span>Response</span><b class="rd">&lt; 60s</b></div>
   </div>
+  <div class="wrap hero-content">
+    <div class="kicker">New &amp; pre-owned · Premium and exotic</div>
+    <h1 class="display">Find your <em>next one.</em></h1>
+    <p>New and hand-picked pre-owned, every one inspected. Real answers in under a minute, any hour.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-red" href="inventory.html">Browse inventory</a>
+      <a class="btn btn-ghost" href="#trade">Value my trade</a>
+    </div>
+    <div class="scroll-hint">scroll to explore the lot</div>
+  </div>
+</header>
 
+<section id="cluster-section">
   <div class="cluster">
     <div class="wrap cluster-grid">
 
@@ -78,7 +88,7 @@
 
     </div>
   </div>
-</header>
+</section>
 
 <section>
   <div class="wash"></div>

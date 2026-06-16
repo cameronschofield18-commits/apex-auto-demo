@@ -34,4 +34,10 @@ if (boot && !reduce) {
   boot.classList.add('done');
 }
 
-export { gsap, ScrollTrigger, lenis, reduce };
+// holographic hero
+import { initHero3D } from './hero3d.js';
+const heroCanvas = document.getElementById('hero-canvas');
+let heroState = null;
+if (heroCanvas) heroState = initHero3D(heroCanvas, reduce);
+
+export { gsap, ScrollTrigger, lenis, reduce, heroState };
