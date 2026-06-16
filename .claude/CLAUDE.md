@@ -13,7 +13,15 @@ Live site: https://apex-auto-demo.vercel.app (canonical; GitHub Pages retired)
 - Phase 2: AI chat assistant (Claude API) answering inventory Q&A + capturing leads — DONE (specs/plans 2026-06-12)
 - Phase 3: instant auto-follow-up (AI SMS+email+drip) in a mock phone + dash expansion — DONE (specs/plans 2026-06-15)
 - New + Pre-Owned expansion (condition field, dash category buttons, inventory tabs) — DONE (specs/plans 2026-06-15)
+- Apex OS award-tier redesign (Three.js holographic car hero, GSAP/Lenis scroll cinematics, ignition boot, cockpit chrome) — DONE (specs/plans 2026-06-15)
 - Phase 4: lead dashboard (reads localStorage["apex-leads"]) + 3-minute demo video
+
+## Redesign tech (home page)
+- Home uses ES module `public/home.js` importing Three.js 0.160, GSAP 3.12 + ScrollTrigger, Lenis 1.1 from esm.sh CDN (no build step). Inventory/vehicle use lighter `public/page.js` (Lenis + reveal).
+- Holographic hero: `public/hero3d.js` — procedural extruded sports-car silhouette (no external model; on-concept wireframe). Scroll-reactive rotation.
+- Scroll reveals use `immediateRender: false` so elements never get stuck invisible if a trigger misfires.
+- Reduced-motion: boot skipped, car static, content fully visible.
+- AI chat/lead/follow-up (api/chat.js, chat.js, followup.js) unchanged in behavior, only restyled.
 
 ## Design direction (Signal palette, applied site-wide)
 - Warm near-black base (#0D0D0E), surfaces (#18181A), bone text (#ECE7DC), single caliper-red accent (#D64545; #C73E3E on solid buttons for AA contrast)
